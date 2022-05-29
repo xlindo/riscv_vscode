@@ -1,0 +1,66 @@
+/*
+ * @Author: xlindo && hi@xlindo.com
+ * @Date: 2022-05-29 11:31:37
+ * @LastEditors: xlindo && hi@xlindo.com
+ * @LastEditTime: 2022-05-29 18:13:35
+ * @FilePath: /hello_riscv/.vscode/launch.json
+ * @Prerequistes:
+ *  riscv-gnu-toolchain, QEMU-6.2.0
+ * @Description:
+ *  This launch.json is for risc-v and x86 debugging. `miDebuggerPath` and `args` should be replaced with real path.
+ * Prerequistes: riscv64-unknown-linux-gnu-toolchain, QEMU-6.2.0
+ * RISC-V:
+ *  1. Terminal -> Run Task -> C/C++(RISC-V): Build active file
+ *  2. Terminal -> Run Task -> Run Qemu Server(RISC-V)
+ *  3. F5
+ * 
+ * Copyright (c) 2022 by xlindo.com, All Rights Reserved. 
+ */
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++(RISCV) - Debug Active File",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${fileBasenameNoExtension}d",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${fileDirname}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ],
+      "miDebuggerPath": "${RISCV}/bin/riscv64-unknown-linux-gnu-gdb",
+      "miDebuggerServerAddress": "localhost:65501"
+    },
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "cppdbg",
+      "request": "launch",
+      "args": [
+        ""
+      ],
+      "stopAtEntry": false,
+      "environment": [],
+      "program": "${fileBasenameNoExtension}_x86_d",
+      "internalConsoleOptions": "openOnSessionStart",
+      "MIMode": "gdb",
+      "miDebuggerPath": "gdb",
+      "externalConsole": false,
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ]
+    }
+  ]
+}
