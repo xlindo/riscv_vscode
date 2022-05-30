@@ -2,7 +2,7 @@
  * @Author: xlindo && hi@xlindo.com
  * @Date: 2022-05-29 11:31:37
  * @LastEditors: hi@xlindo.com
- * @LastEditTime: 2022-05-30 14:40:05
+ * @LastEditTime: 2022-05-30 15:35:20
  * @FilePath: /hello_riscv/.vscode/tasks.json
  * @Description: This tasks.json is for risc-v and x86 debugging. `command` and `args` should be replaced with real path.
  * Prerequistes: riscv64-unknown-linux-gnu-toolchain, QEMU-6.2.0
@@ -25,7 +25,7 @@
                 "-g",
                 "${file}",
                 "-o",
-                "${fileBasenameNoExtension}d"
+                "${fileBasenameNoExtension}_rv_d"
             ],
             "options": {
                 "cwd": "${workspaceFolder}"
