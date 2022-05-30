@@ -17,6 +17,8 @@ There is a simple project with `.vscode`, including `launch.json` and `tasks.jso
 
 ### Modification
 
+> Simply, replace ${RISCV} and ${QEMU} with real paths in two json file.
+
 * `args` for `Run Qemu Server(RISC-V)` in `tasks.json`, `sysroot` to real path.
 * All commands in `command` to real paths.
 * `port`, i.e. 65501 in project, to custom one but the same in two json files.

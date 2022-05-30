@@ -1,8 +1,8 @@
 /*
  * @Author: xlindo && hi@xlindo.com
  * @Date: 2022-05-29 11:31:37
- * @LastEditors: xlindo && hi@xlindo.com
- * @LastEditTime: 2022-05-29 18:12:27
+ * @LastEditors: hi@xlindo.com
+ * @LastEditTime: 2022-05-30 12:01:51
  * @FilePath: /hello_riscv/.vscode/tasks.json
  * @Description: This tasks.json is for risc-v and x86 debugging. `command` and `args` should be replaced with real path.
  * Prerequistes: riscv64-unknown-linux-gnu-toolchain, QEMU-6.2.0
@@ -39,7 +39,7 @@
             "type": "shell",
             "label": "Run Qemu Server(RISC-V)",
             "dependsOn": "C/C++(RISC-V): Build active file",
-            "command": "qemu-riscv64",
+            "command": "${QEMU}/bin/qemu-riscv64",
             "args": [
                 "-L",
                 "${RISCV}/sysroot",
