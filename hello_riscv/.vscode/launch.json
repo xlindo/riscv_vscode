@@ -1,8 +1,8 @@
 /*
  * @Author: xlindo && hi@xlindo.com
  * @Date: 2022-05-29 11:31:37
- * @LastEditors: xlindo && hi@xlindo.com
- * @LastEditTime: 2022-05-29 18:13:35
+ * @LastEditors: hi@xlindo.com
+ * @LastEditTime: 2022-05-30 14:39:14
  * @FilePath: /hello_riscv/.vscode/launch.json
  * @Prerequistes:
  *  riscv-gnu-toolchain, QEMU-6.2.0
@@ -20,36 +20,35 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "C/C++(RISCV) - Debug Active File",
+      "name": "C/C++(RISCV) - Debug active file",
       "type": "cppdbg",
       "request": "launch",
-      "program": "${fileBasenameNoExtension}d",
+      "program": "${fileBasenameNoExtension}_rv_d",
       "args": [],
       "stopAtEntry": false,
       "cwd": "${fileDirname}",
       "environment": [],
       "externalConsole": false,
       "MIMode": "gdb",
+      "miDebuggerPath": "${RISCV}/bin/riscv64-unknown-linux-gnu-gdb",
+      "miDebuggerServerAddress": "localhost:65501",
       "setupCommands": [
         {
           "description": "Enable pretty-printing for gdb",
           "text": "-enable-pretty-printing",
           "ignoreFailures": true
         }
-      ],
-      "miDebuggerPath": "${RISCV}/bin/riscv64-unknown-linux-gnu-gdb",
-      "miDebuggerServerAddress": "localhost:65501"
+      ]
     },
     {
-      "name": "C/C++ Runner: Debug Session",
+      "name": "C/C++(x86) - Debug active file",
       "type": "cppdbg",
       "request": "launch",
-      "args": [
-        ""
-      ],
+      "args": [],
       "stopAtEntry": false,
       "environment": [],
-      "program": "${fileBasenameNoExtension}_x86_d",
+      "cwd": "${workspaceFolder}",
+      "program": "${fileDirname}/${fileBasenameNoExtension}_x86_d",
       "internalConsoleOptions": "openOnSessionStart",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
@@ -60,7 +59,8 @@
           "text": "-enable-pretty-printing",
           "ignoreFailures": true
         }
-      ]
+      ],
+      "preLaunchTask": "C/C++(x86): Build active file"
     }
   ]
 }

@@ -2,7 +2,7 @@
  * @Author: xlindo && hi@xlindo.com
  * @Date: 2022-05-29 11:31:37
  * @LastEditors: hi@xlindo.com
- * @LastEditTime: 2022-05-30 12:01:51
+ * @LastEditTime: 2022-05-30 14:40:05
  * @FilePath: /hello_riscv/.vscode/tasks.json
  * @Description: This tasks.json is for risc-v and x86 debugging. `command` and `args` should be replaced with real path.
  * Prerequistes: riscv64-unknown-linux-gnu-toolchain, QEMU-6.2.0
@@ -13,7 +13,6 @@
  * 
  * Copyright (c) 2022 by xlindo.com, All Rights Reserved. 
  */
- 
 {
     "version": "2.0.0",
     "tasks": [
@@ -45,7 +44,7 @@
                 "${RISCV}/sysroot",
                 "-g",
                 "65501",
-                "${fileBasenameNoExtension}d"
+                "${fileBasenameNoExtension}_rv_d"
             ],
             "problemMatcher": []
         },
@@ -55,7 +54,7 @@
             "command": "ps -ef | grep qemu-riscv64 | grep -v grep | awk '{print $2}' | xargs -i kill -9 {}"
         },
         {
-            "label": "C/C++: g++ build active file",
+            "label": "C/C++(x86): Build active file",
             "type": "shell",
             "command": "g++",
             "args": [
@@ -64,7 +63,7 @@
                 "-std=c++14",
                 "${file}",
                 "-o",
-                "${fileBasenameNoExtension}_x86_d"
+                "${fileDirname}/${fileBasenameNoExtension}_x86_d"
             ],
             "problemMatcher": []
         }
